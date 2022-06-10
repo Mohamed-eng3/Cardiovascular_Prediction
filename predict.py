@@ -16,17 +16,17 @@ def show_predict_page():
 
     st.write("""### We need some information to predict the disease""")
 
-    genders = (1, 2)
-    height = st.slider("Height", 0, 200, 1)
-    weight = st.slider("Weight", 0, 200, 1)
+    genders = ("1", "2")
+    height = st.slider("Height", 0, 200, 3)
+    weight = st.slider("Weight", 0, 200, 3)
     bmi = weight/((height/100)**2)
-    systolic = st.slider("Systolic BP", 0, 200, 1)
-    diastolic = st.slider("Diastolic BP", 0, 200, 1)
-    age = st.slider("Age", 0, 80, 1)
-    cholesterols = (1,2,3)
-    gluc = (1,2,3)
-    smokes = (0,1)
-    actives = (0,1)
+    systolic = st.slider("Systolic BP", 0, 200, 3)
+    diastolic = st.slider("Diastolic BP", 0, 200, 3)
+    age = st.slider("Age", 0, 80, 3)
+    cholesterols = ("1","2","3")
+    gluc = ("1","2","3")
+    smokes = ("0","1")
+    actives = ("0","1")
 
 
     #Selection Boxes
@@ -76,7 +76,7 @@ def show_predict_page():
 
     ok = st.button("Calculate Salary")
     if ok:
-              
+        gender, height, weight, systolic, diastolic, age, bmi_class, cholesterol,glucose_lvl,smoke,active = int(gender),int(height),int(weight),int(systolic),int(diastolic),int(age),int(bmi_class),int(cholesterol),int(glucose_lvl),int(smoke),int(active)    
         X = np.array([[gender, height, weight, systolic, diastolic, age, age_bin, bmi_class, cholesterol,glucose_lvl,smoke,active]])
 
         pred = clf.predict(X)
